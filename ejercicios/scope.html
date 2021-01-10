@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+</head>
+<body>
+    <a href="/ejercicios/">Go Back</a>
+
+    <p><em>Abre la Consola</em></p>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script> 
+    <script>
+        //Global Scope
+            // var message = "Hello Platzi";
+            // var $ = function(message1) {
+            //     console.log('hola este es el mensaje:' + message1)
+            // }
+
+        //Function Scope
+                
+                function imprimirNumero() {
+                    for(var i= 0; i < 10; i++){
+                        setTimeout(function(){
+                            console.log(i)
+                        }, 1000)
+                    }
+                }
+                imprimirNumero();
+                //me va a escribir 10 veces el 10. Esto sucede porque i se incrementa en cada ciclo y al final solo se imprime la variable luego del último loop
+
+                var i;
+                function imprimirNumero2() { 
+                    for(i= 0; i < 10; i++){
+                        function eventuallyPrintNumbers(n){
+                            setTimeout(function(){
+                            console.log(n)
+                            }, 1000)
+                        }
+                        eventuallyPrintNumbers(i);
+                    }
+                }
+                imprimirNumero2();
+                //Aquí se imprimen los número del 1 al 9 porque se le cambia el scope a la variable, y pasó a tener un scope de función 
+        //Block Scope
+                
+            function imprimirNumero3() {
+                        for(let i= 10; i < 20; i++){
+                            setTimeout(function(){
+                                console.log(i)
+                            }, 1000)
+                        }
+                    }
+                    imprimirNumero3();
+                    //let opera sobre block scope, el for lo convierte en un bloque y recuerda el valor
+            //Module Scope
+                    //Hace que la vida o el scope de una variable esté limitada al archivo donde está definido
+    </script>
+    
+</body>
+</html>
