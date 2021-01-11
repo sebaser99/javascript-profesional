@@ -39,4 +39,13 @@ main {
 
 .playButton {
   cursor: pointer;
-}
+  display: inline-block;
+  margin: 10px;
+  background-color: #F188E0;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  border: none;
+  
+
+} 
